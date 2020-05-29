@@ -1,0 +1,13 @@
+﻿@page
+@model Diploma_ASP_NET_CORE.Pages.People.CreateModel
+@{
+    ViewData["Title"] = "Додавання нового користувача";
+}
+<h2>@ViewData["Title"]</h2>
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div><label> Ім'я</label><br /><input asp-for="Student.Name" /></div>
+    <div><label> Вік:</label><br /><input asp-for="Student.Age" type="number" /></div>
+    <div><label> Рівень знань</label><br /><input asp-for="Student.Level" /></div>
+        <input type="submit" value="Вiдправити" />
+</form>
