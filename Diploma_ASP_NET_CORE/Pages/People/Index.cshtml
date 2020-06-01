@@ -8,13 +8,24 @@
 <p><a asp-page="Create">Додати користувача</a></p>
 <table class="table">
     <thead>
-        <tr><th>Имя</th><th>Вiк</th></tr>
+        <tr><th>Ім'я</th><th>Вiк</th><th>Рiвень знань</th></tr>
     </thead>
     <tbody>
         @foreach (var student in Model.People)
         {
-            <tr><td>@student.Name</td><td>@student.Age</td></tr>
-            <tr><td>@student.Level</td></tr>
-                }
-        </tbody>
- </table>
+            <tr>
+                <td>@student.Name</td>
+                <td>@student.Age</td>
+                <td>@student.Level</td>
+                <td>
+                    <form method="post">
+                        <a asp-page="Edit" asp-route-id="@student.Id">Змiнити</a>
+                        <button type="submit" asp-page-handler="delete" asp-route-id="@student.Id"> 
+                            Видалити
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }  
+    </tbody>
+</table>

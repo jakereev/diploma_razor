@@ -21,6 +21,17 @@ namespace Diploma_ASP_NET_CORE.Pages.People
         {
             People = _context.People.AsNoTracking().ToList();
         }
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            var product = await _context.People.FindAsync(id);
+
+            if (product != null)
+            {
+                _context.People.Remove(product);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage();
+        }
     }
 }
-
